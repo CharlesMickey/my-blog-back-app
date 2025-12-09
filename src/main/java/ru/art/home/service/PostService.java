@@ -1,12 +1,12 @@
-package ru.yandex.practicum.service;
+package ru.art.home.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import ru.yandex.practicum.model.Post;
-import ru.yandex.practicum.repository.CommentRepository;
-import ru.yandex.practicum.repository.PostRepository;
+import ru.art.home.model.Post;
+import ru.art.home.repository.CommentRepository;
+import ru.art.home.repository.PostRepository;
 
 import java.io.IOException;
 import java.util.List;

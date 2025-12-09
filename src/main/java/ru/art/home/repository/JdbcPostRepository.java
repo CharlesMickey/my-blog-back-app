@@ -1,11 +1,11 @@
-package ru.yandex.practicum.repository;
+package ru.art.home.repository;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import ru.yandex.practicum.model.Post;
+import ru.art.home.model.Post;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;

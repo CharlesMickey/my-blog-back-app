@@ -1,6 +1,6 @@
-package ru.yandex.practicum.repository;
+package ru.art.home.repository;
 
-import ru.yandex.practicum.model.Post;
+import ru.art.home.model.Post;
 
 import java.util.List;
 import java.util.Optional;

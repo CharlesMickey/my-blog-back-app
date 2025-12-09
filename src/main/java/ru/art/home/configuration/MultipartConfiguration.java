@@ -1,4 +1,4 @@
-package ru.yandex.practicum.configuration;
+package ru.art.home.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,5 +12,4 @@ public class MultipartConfiguration {
     public MultipartResolver multipartResolver() {
         return new StandardServletMultipartResolver();
     }
-
 }

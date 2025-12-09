@@ -1,4 +1,4 @@
-package ru.yandex.practicum.configuration;
+package ru.art.home.configuration;
 
 import org.h2.Driver;
 import org.springframework.beans.factory.annotation.Value;
