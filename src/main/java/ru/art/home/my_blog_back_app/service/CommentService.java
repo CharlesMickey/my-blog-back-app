@@ -3,6 +3,7 @@ package ru.art.home.my_blog_back_app.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.art.home.my_blog_back_app.exception.NotFoundException;
 import ru.art.home.my_blog_back_app.model.Comment;
 import ru.art.home.my_blog_back_app.model.Post;
 import ru.art.home.my_blog_back_app.repository.CommentRepository;
@@ -24,13 +25,13 @@ public class CommentService {
     public Comment getComment(Long postId, Long commentId) {
         return commentRepository.findById(commentId)
                 .filter(comment -> comment.getPostId().equals(postId))
-                .orElseThrow(() -> new RuntimeException("Comment not found"));
+                .orElseThrow(() -> new NotFoundException("Comment not found"));
     }
 
     @Transactional
     public Comment createComment(Comment comment) {
         Post post = postRepository.findById(comment.getPostId())
-                .orElseThrow(() -> new RuntimeException("Post not found with id: " + comment.getPostId()));
+                .orElseThrow(() -> new NotFoundException("Post not found with id: " + comment.getPostId()));
 
         Comment saved = commentRepository.save(comment);
         post.setCommentsCount(post.getCommentsCount() + 1);
@@ -47,12 +48,12 @@ public class CommentService {
     @Transactional
     public void deleteComment(Long commentId) {
         Comment comment = commentRepository.findById(commentId)
-                .orElseThrow(() -> new RuntimeException("Comment not found"));
+                .orElseThrow(() -> new NotFoundException("Comment not found"));
 
         commentRepository.deleteById(commentId);
 
         Post post = postRepository.findById(comment.getPostId())
-                .orElseThrow(() -> new RuntimeException("Post not found with id: " + comment.getPostId()));
+                .orElseThrow(() -> new NotFoundException("Post not found with id: " + comment.getPostId()));
 
         post.setCommentsCount(Math.max(0, post.getCommentsCount() - 1));
         postRepository.update(post);

@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import ru.art.home.my_blog_back_app.exception.NotFoundException;
 import ru.art.home.my_blog_back_app.model.Post;
 import ru.art.home.my_blog_back_app.repository.CommentRepository;
 import ru.art.home.my_blog_back_app.repository.PostRepository;
@@ -42,7 +43,7 @@ public class PostService {
 
     public Post getPost(Long id) {
         return postRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Post not found with id: " + id));
+                .orElseThrow(() -> new NotFoundException("Post not found with id: " + id));
     }
 
     @Transactional
@@ -55,7 +56,7 @@ public class PostService {
     @Transactional
     public Post updatePost(Post post) {
         Post existing = postRepository.findById(post.getId())
-                .orElseThrow(() -> new RuntimeException("Post not found with id: " + post.getId()));
+                .orElseThrow(() -> new NotFoundException("Post not found with id: " + post.getId()));
 
         post.setLikesCount(existing.getLikesCount());
         post.setCommentsCount(existing.getCommentsCount());
