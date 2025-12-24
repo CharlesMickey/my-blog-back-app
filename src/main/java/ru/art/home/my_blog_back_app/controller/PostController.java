@@ -1,4 +1,4 @@
-package ru.art.home.controller;
+package ru.art.home.my_blog_back_app.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -6,8 +6,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.art.home.model.Post;
-import ru.art.home.service.PostService;
+import ru.art.home.my_blog_back_app.model.Post;
+import ru.art.home.my_blog_back_app.service.PostService;
 
 import java.io.IOException;
 import java.util.Map;

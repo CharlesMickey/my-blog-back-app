@@ -1,6 +1,6 @@
-package ru.art.home.repository;
+package ru.art.home.my_blog_back_app.repository;
 
-import ru.art.home.model.Post;
+import ru.art.home.my_blog_back_app.model.Post;
 
 import java.util.List;
 import java.util.Optional;

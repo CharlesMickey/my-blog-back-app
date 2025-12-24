@@ -1,4 +1,4 @@
-package ru.art.home.model;
+package ru.art.home.my_blog_back_app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

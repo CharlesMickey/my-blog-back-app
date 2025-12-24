@@ -1,12 +1,12 @@
-package ru.art.home.service;
+package ru.art.home.my_blog_back_app.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.art.home.model.Comment;
-import ru.art.home.model.Post;
-import ru.art.home.repository.CommentRepository;
-import ru.art.home.repository.PostRepository;
+import ru.art.home.my_blog_back_app.model.Comment;
+import ru.art.home.my_blog_back_app.model.Post;
+import ru.art.home.my_blog_back_app.repository.CommentRepository;
+import ru.art.home.my_blog_back_app.repository.PostRepository;
 
 import java.util.List;
 

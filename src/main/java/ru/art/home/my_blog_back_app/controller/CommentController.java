@@ -1,11 +1,11 @@
-package ru.art.home.controller;
+package ru.art.home.my_blog_back_app.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.art.home.model.Comment;
-import ru.art.home.service.CommentService;
+import ru.art.home.my_blog_back_app.model.Comment;
+import ru.art.home.my_blog_back_app.service.CommentService;
 
 import java.util.List;
 

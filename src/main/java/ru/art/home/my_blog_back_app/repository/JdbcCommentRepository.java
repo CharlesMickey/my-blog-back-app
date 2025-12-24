@@ -1,11 +1,11 @@
-package ru.art.home.repository;
+package ru.art.home.my_blog_back_app.repository;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import ru.art.home.model.Comment;
+import ru.art.home.my_blog_back_app.model.Comment;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
