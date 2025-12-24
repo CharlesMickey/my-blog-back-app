@@ -1,5 +1,6 @@
 package ru.art.home.my_blog_back_app.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -34,13 +35,13 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<Post> createPost(@RequestBody Post post) {
+    public ResponseEntity<Post> createPost(@Valid @RequestBody Post post) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(postService.createPost(post));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post post) {
+    public ResponseEntity<Post> updatePost(@PathVariable Long id, @Valid @RequestBody Post post) {
         post.setId(id);
         return ResponseEntity.ok(postService.updatePost(post));
     }

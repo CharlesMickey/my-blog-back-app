@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -42,5 +44,17 @@ public class CustomExceptionHandler {
         log.info("Bad request: {}", ex.getMessage());
         return ResponseEntity.badRequest()
                 .body(buildErrorBody(HttpStatus.BAD_REQUEST, "BAD_REQUEST", ex.getMessage()));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
+        Map<String, String> fieldErrors = new HashMap<>();
+        for (FieldError error : ex.getBindingResult().getFieldErrors()) {
+            fieldErrors.put(error.getField(), error.getDefaultMessage());
+        }
+
+        Map<String, Object> body = buildErrorBody(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "Validation failed", fieldErrors);
+        log.error("Validation failed: {}", fieldErrors);
+        return ResponseEntity.badRequest().body(body);
     }
 }

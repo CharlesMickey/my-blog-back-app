@@ -1,5 +1,6 @@
 package ru.art.home.my_blog_back_app.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,7 @@ public class CommentController {
     @PostMapping
     public ResponseEntity<Comment> createComment(
             @PathVariable Long postId,
-            @RequestBody Comment comment) {
+            @Valid @RequestBody Comment comment) {
         comment.setPostId(postId);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(commentService.createComment(comment));
@@ -42,7 +43,7 @@ public class CommentController {
     public ResponseEntity<Comment> updateComment(
             @PathVariable Long postId,
             @PathVariable Long commentId,
-            @RequestBody Comment comment) {
+            @Valid @RequestBody Comment comment) {
         comment.setId(commentId);
         comment.setPostId(postId);
         return ResponseEntity.ok(commentService.updateComment(comment));
